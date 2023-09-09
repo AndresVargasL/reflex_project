@@ -4,5 +4,5 @@ class ReflexConfig(rx.Config):
     pass
 
 config = ReflexConfig(
-    app_name="Reflex",
+    app_name="reflex",
 )
