@@ -1,22 +1,23 @@
 # chatapp.py
 import reflex as rx
-from reflex.state import State
+
 from reflex import style
+from reflex.state import State
+
 
 def qa(question: str, answer: str) -> rx.Component:
     return rx.box(
         rx.box(
-            rx.text(question, 
-            style=style.question_style),
-            text_align="right",
+            rx.text(question, text_align="right"),
+            style=style.question_style,
         ),
         rx.box(
-            rx.text(answer, 
-            style=style.answer_style),
-            text_align="left",
+            rx.text(answer, text_align="left"),
+            style=style.answer_style,
         ),
         margin_y="1em",
     )
+
 
 def chat() -> rx.Component:
     return rx.box(
@@ -26,28 +27,29 @@ def chat() -> rx.Component:
         )
     )
 
+
 def action_bar() -> rx.Component:
     return rx.hstack(
         rx.input(
             value=reflexState.question,
             placeholder="Ask a question",
-            on_change=State.set_question,
-            style=style.input_style
+            on_change=reflexState.set_question,
+            style=style.input_style,
         ),
         rx.button(
             "Ask",
             on_click=State.answer,
-            style=style.button_style),
+            style=style.button_style,
+        ),
     )
+
 
 def index() -> rx.Component:
     return rx.container(
-        chat(), 
-        action_bar()
+        chat(),
+        action_bar(),
     )
 
-
-# Add state and page to the app.
 app = rx.App()
 app.add_page(index)
 app.compile()
