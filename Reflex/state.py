@@ -1,11 +1,11 @@
 # state.py
 import reflex as rx
-import os
 import openai
+from Reflex import openai_env
 
 
-openai.api_key = os.environ["OPENAI_API_KEY"]
-
+#openai.api_key = os.environ["OPENAI_API_KEY"]
+openai.api_key = openai_env.API_KEY
 
 class State(rx.State):
 

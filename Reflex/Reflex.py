@@ -1,8 +1,7 @@
 # chatapp.py
 import reflex as rx
-
-from reflex import style
-from reflex.state import State
+from Reflex import style
+from Reflex.state import State
 
 
 def qa(question: str, answer: str) -> rx.Component:
@@ -31,9 +30,9 @@ def chat() -> rx.Component:
 def action_bar() -> rx.Component:
     return rx.hstack(
         rx.input(
-            value=reflexState.question,
+            value=State.question,
             placeholder="Ask a question",
-            on_change=reflexState.set_question,
+            on_change=State.set_question,
             style=style.input_style,
         ),
         rx.button(
